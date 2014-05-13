@@ -17,7 +17,9 @@ http://www.springframework.org/schema/security/spring-security-3.2.xsd">
 		<security:intercept-url pattern="/signup" access="permitAll" />
 		<security:intercept-url pattern="/myteam" access="permitAll" />
 		<security:intercept-url pattern="/createuser" access="permitAll" />
-		<security:intercept-url pattern="/generatereports" access="permitAll" />
+		<security:intercept-url pattern="/overtimereport" access="permitAll" />
+        <security:intercept-url pattern="/latereport" access="permitAll" />
+        <security:intercept-url pattern="/nopayleave" access="permitAll" />
 		<security:intercept-url pattern="/task" access="permitAll" />
 		
 		<security:intercept-url pattern="/**" access="isAuthenticated()" />
