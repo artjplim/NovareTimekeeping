@@ -15,31 +15,68 @@
 <body>
 
 <div th:replace="fragments/header :: header">Header</div>
+<form class="form-narrow form-horizontal" method="post" th:action="@{/createuser}" th:object="${createuserForm}">
+    <th:block th:if="${#fields.hasErrors('${createuserForm.*}')}">
+        <div th:replace="fragments/alert :: alert (type='danger', message='Form contains errors. Please try again.')">Alert</div>
+    </th:block>
     <div class="container">
       <div class="well">
         <div class="input-group">
         <h1>User Creation</h1>
         <table class="table">
           <tr>
-            <th><input type="text" class="form-control" placeholder="First Name" /></th>
-            <th><input type="text" class="form-control" placeholder="Last Name" /></th>
-            <th><input type="text" class="form-control" placeholder="Middle Name" /></th>
+            <th><div class="form-group" th:classappend="${#fields.hasErrors('name')}? 'has-error'">
+                <input type="text" class="form-control" placeholder="First Name" th:field="*{firstname}" />
+                </div>
+            </th>
+            <th><div class="form-group" th:classappend="${#fields.hasErrors('lastname')}? 'has-error'">
+                <input type="text" class="form-control" placeholder="Last Name" th:field="*{lastname}" />
+                </div>
+            </th>
+            <th><div class="form-group" th:classappend="${#fields.hasErrors('middlename')}? 'has-error'">
+                <input type="text" class="form-control" placeholder="Middle Name" th:field="*{middlename}" />
+                </div>
+            </th>
           </tr>
           <tr>
-            <th><input type="text" class="form-control" placeholder="Position" /></th>
-            <th><input type="text" class="form-control" placeholder="Supervisor" /></th>
+            <th><div class="form-group" th:classappend="${#fields.hasErrors('position')}? 'has-error'">
+                <input type="text" class="form-control" placeholder="Position" th:field="*{position}" />
+                </div>
+            </th>
+            <th><div class="form-group" th:classappend="${#fields.hasErrors('supervisor')}? 'has-error'">
+                <input type="text" class="form-control" placeholder="Supervisor" th:field="*{supervisor}" />
+                </div>
+            </th>
           </tr>
           <tr>
-            <th><input type="text" class="form-control" placeholder="Date Hired" /></th>
-            <th><input type="text" class="form-control" placeholder="Level" /></th>
+            <th><div class="form-group" th:classappend="${#fields.hasErrors('datahired')}? 'has-error'">
+                <input type="text" class="form-control" placeholder="Date Hired" th:field="*{datahired}" />
+                </div>
+            </th>
+            <th><div class="form-group" th:classappend="${#fields.hasErrors('level')}? 'has-error'">
+                <input type="text" class="form-control" placeholder="Level" th:field="*{level}" />
+                </div>
+            </th>
           </tr>
           <tr>
-            <th><input type="text" class="form-control" placeholder="SSS" /></th>
-            <th><input type="text" class="form-control" placeholder="TIN" /></th>
+            <th><div class="form-group" th:classappend="${#fields.hasErrors('sssID')}? 'has-error'">
+                <input type="text" class="form-control" placeholder="SSS" th:field="*{sssID}" />
+                </div>
+            </th>
+            <th><div class="form-group" th:classappend="${#fields.hasErrors('tinID')}? 'has-error'">
+                <input type="text" class="form-control" placeholder="TIN" th:field="*{tinID}" />
+                </div>
+            </th>
           </tr>
           <tr>
-            <th><input type="text" class="form-control" placeholder="PAGIBIG" /></th>
-            <th><input type="text" class="form-control" placeholder="Healthcard" /></th>
+            <th><div class="form-group" th:classappend="${#fields.hasErrors('pagibigID')}? 'has-error'">
+                <input type="text" class="form-control" placeholder="PAGIBIG" th:field="*{pagibigID}" />
+                </div>
+            </th>
+            <th><div class="form-group" th:classappend="${#fields.hasErrors('healthcardID')}? 'has-error'">
+                <input type="text" class="form-control" placeholder="Healthcard" th:field="*{healthcardID}" />
+                </div>
+            </th>
           </tr>
           <tr>
             <th><div class="bs-example"><div class="btn-group" style="margin: 9px 0 5px;">
